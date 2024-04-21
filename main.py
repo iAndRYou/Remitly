@@ -100,11 +100,9 @@ def verify(file_path: str) -> bool | None:
             all_policy_statements_correct(data['PolicyDocument'])
     
     except FileNotFoundError:
-        print(f"Error: File '{file_path}' not found.")
-        return None
+        raise Exception(f"File '{file_path}' not found.")
     except json.JSONDecodeError:
-        print(f"Error: Invalid JSON format in '{file_path}'.")
-        return None
+        raise Exception(f"Invalid JSON format in '{file_path}'.")
 
 
 
